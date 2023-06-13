@@ -15,7 +15,7 @@ def prettyformat(x):
 
 for row in sys.stdin:
   elementos = row.strip()
-  elementos = elementos.split("   ")
+  elementos = elementos.split(" ")
   
   valor = date.fromisoformat(elementos[1])
   mes = prettyformat(valor.month)
