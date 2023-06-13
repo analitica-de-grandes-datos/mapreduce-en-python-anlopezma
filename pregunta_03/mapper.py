@@ -2,7 +2,6 @@
 # >>> Escriba el codigo del mapper a partir de este punto <<<
 #
 import sys
-import csv
 
 for line in sys.stdin:
     columns = line.split().split(",")
