@@ -7,7 +7,7 @@ dict =  {}
 
 for row in sys.stdin:
   linea = row.strip()
-  linea = linea.split(";")
+  linea = linea.split(",")
   if linea[0] in dict.keys():
     dict[linea[0]] +=  1
     
