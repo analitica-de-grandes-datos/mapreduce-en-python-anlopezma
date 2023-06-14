@@ -3,11 +3,22 @@
 #
 import sys
 
-with open('data.csv', 'r') as archivocsv:
-    for line in archivocsv:
-        line = line.strip()
-        columns = line.split("  ")
+top_values = []
 
-        if len(columns) >= 3:
-            value = float(columns[2])
-            print(f'{value}\t{line}')
+
+for line in sys.stdin:
+    line = line.strip()
+    value, record = line.split("\t", 1)
+    value = float(value)
+
+    if len(top_values) < 6:
+        top_values.append((value, record))
+        top_values.sort()
+    elif value < top_values[-1][0]:
+        top_values.pop()
+        top_values.append((value, record))
+        top_values.sort()
+
+
+for value, record in top_values:
+    print(record)
